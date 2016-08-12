@@ -1,5 +1,6 @@
 # thoang3
-CS342 Spring 2016 Project Repo
-UIN: 665391264
+Java Projects
+
+Name: Tung Hoang
 Email: thoang3@uic.edu	
 
