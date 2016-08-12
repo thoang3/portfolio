@@ -1,5 +1,5 @@
-# thoang3
-CS342 Spring 2016 Project Repo
-UIN: 665391264
+Project 5 - Tetris
+
+Tung Hoang
 Email: thoang3@uic.edu	
 
