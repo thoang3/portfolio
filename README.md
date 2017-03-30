@@ -1,5 +1,5 @@
 # thoang3
-Java Projects
+Digit Classification
 
 Name: Tung Hoang
 Email: thoang3@uic.edu	
