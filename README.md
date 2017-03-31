@@ -1,8 +1,8 @@
 # Research and Course Projects
 
-# Name: Tung Hoang
+Name: Tung Hoang
 
-# Email: thoang3@uic.edu	
+Email: thoang3@uic.edu	
 
 
 
