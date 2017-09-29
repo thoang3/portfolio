@@ -16,7 +16,7 @@ testingLabels = loadMNISTLabels('t10k-labels.idx1-ubyte');
 % number of input neuron
 M = 784;
 % number of hidden neuron
-N = 50;
+N = 30;
 % number of output neuron
 L = 10;
 
@@ -24,7 +24,7 @@ L = 10;
 iden = eye(10); % d(1) = [1 0 ... 0]' is 0, d(2) is 1, ..., d(10) is 9
 
 % Extract a subset of the training images to test the method
-n_train = 60000; % size of training subset, 60000 is full training set
+n_train = 20000; % size of training subset, 60000 is full training set
 trainingImagesSubset = trainingImages(:, 1:n_train);
 trainingLabelsSubset = trainingLabels(1:n_train);
 
@@ -49,7 +49,7 @@ for i = 1:n_test
     d_test(:, i) = iden(:, testingLabelsSubset(i)+1);
 end
 
-max_epochs = 150;  % # of maximum epoch
+max_epochs = 10;  % # of maximum epoch
 threshold = 0.05; % energy function threshold
 eta = 0.1; % learning rate
 
