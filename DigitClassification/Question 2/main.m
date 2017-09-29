@@ -100,8 +100,7 @@ for epoch = 1:max_epochs
     for i = 1:n_train
         [v1, y1, v2, y2] = feedForwardNet(x_train(:, i), W1, W2);
         errorTrain(i, :) = Dist(d_train(:, i), y2); % energy value at sample i
-        y_train(:, i) = y2;  % network output of input sample i
-        
+        y_train(:, i) = y2;  % network output of input sample i   
     end
     
     % Energy vector for training sample in one epoch
@@ -178,7 +177,7 @@ testErrorRateVector(max_epochs)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Plot of #epoch and energy function for training case
-figure(1)
+figure(2)
 title('Epochs vs Energy Function for training dataset')
 xlabel('#epoch')
 ylabel('energy')
@@ -187,7 +186,7 @@ set(gcf, 'PaperPositionMode', 'auto');
 print('-depsc2', strcat('Epochs vs Energy for Training', '-', date, '.eps'));
 
 % Plot of #epoch and energy function for testing case
-figure(2)
+figure(3)
 plot(energy_test)
 title('Epochs vs Energy Function for testing dataset')
 xlabel('#epoch')
@@ -197,7 +196,7 @@ set(gcf, 'PaperPositionMode', 'auto');
 print('-depsc2', strcat('Epochs vs Energy for Testing', '-', date, '.eps'));
 
 % Plot of #epoch and training error rate
-figure(3)
+figure(4)
 plot(trainErrorRateVector);
 title('Epochs vs Error Rate for training dataset')
 xlabel('#epoch')
@@ -207,7 +206,7 @@ set(gcf, 'PaperPositionMode', 'auto');
 print('-depsc2', strcat('Epochs vs Error Rate for Training', '-', date, '.eps'));
 
 % Plot of #epoch and training error rate
-figure(4)
+figure(5)
 plot(testErrorRateVector);
 title('Epochs vs Error Rate for testing dataset')
 xlabel('#epoch')
