@@ -1,5 +1,6 @@
 # thoang3
 Name: Tung Hoang
+
 Email: thoang3@uic.edu
 
 Project Name: Digit Classification with Backpropagation Implementation. 
