@@ -1,15 +1,10 @@
-# Research and Course Projects
+# thoang3
 
 Name: Tung Hoang
 
 Email: thoang3@uic.edu	
 
 
+Project: Cluster DNA sequences using Fourier Power Spectrum
 
-1. Soccer: https://preview.c9users.io/htt1084/it202spr17/projects/1/index.html
-
-2. Digit Classification
-
-3. RSA Encryption/Decryption
-
-4. Mine Sweeper: https://github.com/htt1084/thoang3/tree/MineSweeper/MineSweeper 
+Project description: Designed and implemented Power Spectrum-Moment method to classify genomes and genes using Discrete Fourier Transform (DFT) and power spectrum. Performed cluster analysis to analyze biological sequences using PS-M, improved speed up to 15 times while keeping accuracy on several cases. Written in Matlab.
