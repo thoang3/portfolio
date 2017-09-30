@@ -5,6 +5,6 @@ Name: Tung Hoang
 Email: thoang3@uic.edu	
 
 
-Project: Cluster DNA sequences using Fourier Power Spectrum
+Project: Cluster DNA sequences using Chaos Game Representation
 
-Project description: Designed and implemented Power Spectrum-Moment method to classify genomes and genes using Discrete Fourier Transform (DFT) and power spectrum. Performed cluster analysis to analyze biological sequences using PS-M, improved speed up to 15 times while keeping accuracy on several cases. Written in Matlab.
+Project description: Graphical and numberical representation of DNA sequences using Chaos Game Representation (CGR). Designed and implemented Chaos Game method to classify genomes and genes using CGR and Discrete Fourier Transform (DFT). Written in Matlab.
