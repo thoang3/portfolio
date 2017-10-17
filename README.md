@@ -10,7 +10,7 @@ Email: thoang3@uic.edu
 
 
 
-1. DNA_ChaosGameRepresentation - Cluster DNA sequences using Chaos Game Representation https://github.com/htt1084/thoang3/tree/master/DNA_ChaosGameRepresentation
+1. DNA_ChaosGameRepresentation - Cluster DNA sequences using Chaos Game Representation: https://github.com/htt1084/thoang3/tree/master/DNA_ChaosGameRepresentation
 
 2. DNA_FourierPowerSpectrum - Cluster DNA sequences using Fourier Power Spectrum: https://github.com/htt1084/thoang3/tree/master/DNA_FourierPowerSpectrum
 
