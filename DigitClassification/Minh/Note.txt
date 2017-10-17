@@ -1,0 +1,118 @@
+cd('E:\Depaulll\7.Fall\Neural Network\Project 1')
+M = csvread('xor.csv');
+input = M(:,1:2);
+target= M(:,3);
+nodeLayers = [2 2 1]; 
+numEpochs = 1;
+batchSize = 1;
+eta = 0.1; 
+
+
+Network(input, target, [2 2 1], 5, 2, 0.1)
+
+----------------------------------------------------
+
+N = csvread('iris.csv');
+input = N(:,1:4);
+target= N(:,5:7);
+
+
+Network(input, target, [4 5 5 6 7 3], 100, 10, 0.1)
+
+--------------------------------------------
+
+########Mnist
+digit = load('mnistTrn.mat','-mat')
+load mnistTrn trn
+load mnistTrn trnAns
+
+input = trn';
+target = trnAns';
+Network(input, target, [784 5 5 6 7 10], 100, 10, 0.1)
+
+
+
+
+
+function [ weight, bias ] = Network( input, target, nodeLayers, numEpochs, batchSize, eta)
+
+
+#####test
+
+nodeLayers = [2 2 3 5 1]
+weights = {};
+bias = {};
+for layer = 2:length(nodeLayers)
+weights{layer} = normrnd(0,1,nodeLayers(layer), nodeLayers(layer-1));
+bias{layer} = normrnd(0,1,nodeLayers(layer), 1);
+end 
+
+
+#batchsize = 1 
+for i = length(input)
+	sum_output = {}; 	% wT * input + bias
+	deri_output = {}; % derivation of output aka sigmoid prime
+	output = {}; 		% sum_output through sigmoid = output
+	output{1} = input(1,:)'  %row = instance, column = feature
+	delta = {}	
+
+
+	for layer = 2:length(nodeLayers) % eachlayer sum output diff nhau
+		
+		sum_output{layer} = weights{layer}*output{layer-1} + bias{layer}
+		output{layer} = 1./(1 + exp(-sum_output{layer}))
+		deri_output{layer} =  output{layer}.*(1-output{layer});%DSigmoid(sum_output{layer});
+	end
+
+
+	%error rate
+
+	error = output(length(nodeLayer)) -  target(i)
+	delta{length(nodeLayer)} = error .* deri_output{length(nodeLayer)}	
+
+	%backpropagation
+
+	for layer = (length(nodeLayer)-1) : -1 : 2
+		delta{layer} = ((weights{layer+1})' * delta{layer+1}) .* deri_output{layer};
+	end
+
+	% output gradient
+	for layer = length(nodeLayer) : -1 : 2
+		weights{layer} = weights{layer} - eta * delta{layer} * output{layer-1}';
+		bias{layer} = bias{layer} - eta * sum(delta{layer}, 2)
+	end
+	
+
+
+
+###test
+batchSize = 2
+batch_round = {};
+real_result = {};
+%counter = 1;
+n_batch = floor(length(input)/batchSize) + 1;
+
+
+if n_batch*batchSize == length(input) %2*2
+    n_batch = n_batch;
+    for b_round = 1:n_batch
+        batch_round{b_round} = input(((b_round*2) - 1):b_round*batchSize,:);
+        real_result{b_round} = target(((b_round*2) - 1):b_round*batchSize,:);
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

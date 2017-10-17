@@ -16,7 +16,8 @@ testingLabels = loadMNISTLabels('t10k-labels.idx1-ubyte');
 % number of input neuron
 M = 784;
 % number of hidden neuron
-N = 30;
+N = 100; % N = 80-90, eta = 0.3 => 95%
+
 % number of output neuron
 L = 10;
 
@@ -24,7 +25,7 @@ L = 10;
 iden = eye(10); % d(1) = [1 0 ... 0]' is 0, d(2) is 1, ..., d(10) is 9
 
 % Extract a subset of the training images to test the method
-n_train = 20000; % size of training subset, 60000 is full training set
+n_train = 60000; % size of training subset, 60000 is full training set
 trainingImagesSubset = trainingImages(:, 1:n_train);
 trainingLabelsSubset = trainingLabels(1:n_train);
 
@@ -49,9 +50,9 @@ for i = 1:n_test
     d_test(:, i) = iden(:, testingLabelsSubset(i)+1);
 end
 
-max_epochs = 10;  % # of maximum epoch
+max_epochs = 100;  % # of maximum epoch
 threshold = 0.05; % energy function threshold
-eta = 0.1; % learning rate
+eta = 0.3; % learning rate
 
 % Initialize weights randomly, including biases
 W1 = 2.*rand(N, M+1) -1;
@@ -145,7 +146,8 @@ for epoch = 1:max_epochs
         end
     end
     % testing error rate after one epoch
-    testErrorRate = 100 * testErrorCount/n_test;
+    epoch
+    testErrorRate = 100 * testErrorCount/n_test
     % update error count and error rate vector
     testErrorCountVector(epoch) = testErrorCount;
     testErrorRateVector(epoch) = testErrorRate;
@@ -157,12 +159,12 @@ for epoch = 1:max_epochs
      
     % rescale eta in case energy is increasing
     if (energy_train(epoch) > previous_energy)
-        eta = eta * 0.9;
+        eta = eta * 0.7;
     end
     previous_energy = energy_train(epoch);
     
-    figure(1);
-    plot(energy_train);
+    %figure(1);
+    %plot(energy_train);
     if energy_train(epoch) < threshold
         break;
     end
@@ -178,6 +180,7 @@ testErrorRateVector(max_epochs)
 
 % Plot of #epoch and energy function for training case
 figure(2)
+plot(energy_train)
 title('Epochs vs Energy Function for training dataset')
 xlabel('#epoch')
 ylabel('energy')
