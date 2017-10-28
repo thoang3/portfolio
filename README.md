@@ -14,7 +14,7 @@ Email: thoang3@uic.edu
 
 2. DNA_FourierPowerSpectrum - Cluster DNA sequences using Fourier Power Spectrum: https://github.com/htt1084/thoang3/tree/master/DNA_FourierPowerSpectrum
 
-3. DNA_SpliceSiteDetectionUsingNeuralNetwork - Applied Artificial Neural Network and Chaos Game Representaion to detect protein-coding and non-coding regions within DNA sequence: Paper submission process - will be updated soon
+3. DNA_SpliceSiteDetectionUsingNeuralNetwork - Applied Artificial Neural Network and Chaos Game Representation to detect protein-coding and non-coding regions within DNA sequence: Paper submission process - will be updated soon
 
 4. DigitClassification - Classify MNIST dataset with Neural Network and Backpropagation Implementation: https://github.com/htt1084/thoang3/tree/master/DigitClassification
 
