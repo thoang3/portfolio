@@ -1,16 +1,26 @@
 // Reverse an integer without using string operations.
 
 public class ReverseInteger {
-
+	
 	// iterative 
 	public static int reverseInt(int n) {
-		int retVal = 0;
-		while (n > 0) {
-			retVal = retVal * 10 + n % 10;
-			n = n/10;
+		long retVal = 0;
+		boolean flag = false;
+		if (n < 0) {
+			flag = true;
+			n = -n;
 		}
 
-		return retVal;	
+		while (n > 0) {
+			System.out.println(retVal);
+			retVal = retVal * 10 + n % 10;
+			if (retVal > Integer.MAX_VALUE)
+				return 0;
+			n = n/10;
+		}
+		if (flag == true)
+			return -(int) retVal;
+		return (int) retVal;
 	}
 
 	// recursive
@@ -24,7 +34,7 @@ public class ReverseInteger {
 	// recursive
 	static int base = 1;
 	static int retVal = 0;
-	
+
 	public static int reverseInt3(int n) {
 		if (n > 0) {
 			reverseInt3(n/10);
@@ -36,7 +46,7 @@ public class ReverseInteger {
 	}
 	
 	public static void main(String[] args) {
-		int n = 1234;
+		int n = 1534236469;
 
 		System.out.println(reverseInt(n));
 		System.out.println(reverseInt2(n, 0));

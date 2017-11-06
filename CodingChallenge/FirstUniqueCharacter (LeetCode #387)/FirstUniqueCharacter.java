@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-public class FirstNonRepeatingCharacter {
+public class FirstUniqueCharacter {
 	
 	public static int firstUniqChar(String str) {
         // Use LinkedHashMap to store (character, first occurrences) pair.
