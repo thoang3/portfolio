@@ -1,8 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 public class Booking_SortHotels {
     /*
@@ -10,42 +7,38 @@ public class Booking_SortHotels {
      */
     static int[] sort_hotels(String keywords, int[] hotel_ids, String[] reviews) {
 
-		String[] arrKeywords = keywords.split(" ");
-		System.out.println(Arrays.toString(arrKeywords));
+		String[] arrKeywords = keywords.split(" "); // get array of positive keywords
+		System.out.println(Arrays.toString(arrKeywords)); // print to debug
 
+		// hash map to store pair (hotel id, number or positive keywords)
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 
-		for (int i = 0; i < hotel_ids.length; i++)
-		{	
+		// update hash map by looping through all reviews
+		for (int i = 0; i < hotel_ids.length; i++) {
 			int count = 0;
 
-			for (int j = 0; j < arrKeywords.length; j++)
-			{
+			for (int j = 0; j < arrKeywords.length; j++) {
 				if (reviews[i].toLowerCase().contains(arrKeywords[j]))
 					count++;
 			}
-
-			if (!hm.containsKey(hotel_ids[i]))	
-			{
+			if (!hm.containsKey(hotel_ids[i])) {	
 				hm.put(hotel_ids[i], count);
 			}
-			else
-			{
+			else {
 				count = count + (int) hm.get(hotel_ids[i]);
 				hm.put(hotel_ids[i], count);
 			}
 		}
+		System.out.println(hm); // print to debug
 		
-		System.out.println(hm);
-		
+		// sort hash map based on number of positive reviews' keywords
 		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>>(hm.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
 			public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
 				return (o2.getValue()).compareTo(o1.getValue());
 			}
 		});
-		
-		
+
 		Map<Integer, Integer> result = new LinkedHashMap<Integer, Integer>();
 		
 		for (Map.Entry<Integer, Integer> entry: list)
@@ -53,7 +46,7 @@ public class Booking_SortHotels {
 			result.put(entry.getKey(), entry.getValue());
 		}
 		
-		System.out.println(result);
+		System.out.println(result); // print to debug
 		
 		Integer[] ar = result.keySet().toArray(new Integer[result.size()]);
 		int[] arr = new int[result.size()];
@@ -67,7 +60,7 @@ public class Booking_SortHotels {
 		return arr;
     }
 
-  public static void main(String[] args) throws IOException {
+  	public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         final String fileName = System.getenv("OUTPUT_PATH");
         BufferedWriter bw = null;
