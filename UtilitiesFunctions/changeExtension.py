@@ -1,5 +1,5 @@
 import os,sys
-folder = 'no-gun-present'
+folder = 'gun3048'
 for filename in os.listdir(folder):
        infilename = os.path.join(folder,filename)
        if not os.path.isfile(infilename): continue
