@@ -1,16 +1,14 @@
 # This code runs through a folder of frames, and help you copy the frames 
-# you like to another folder. 
+# you like to another folder, e.g. "gun-images", "no-gun-images"
 
 import cv2
 import os
-#import datetime
-#import glob
 import sys
 
 def filteringFrames(fileName):
 
     folder = fileName + '_mp4'
-    print(folder)
+    #print("\n" + folder)
     pathNoGun = 'no-gun-images'
     pathGun = 'gun-images'
 
@@ -20,13 +18,14 @@ def filteringFrames(fileName):
         os.makedirs(pathGun)
 
     listOfFiles = os.listdir(folder + '/Frames/')     
-    print(listOfFiles)
+    #print(listOfFiles)
+    print("\nYou are now processing folder " + folder) 
 
     ind = 0
 
     while ind < len(listOfFiles):
         filename = listOfFiles[ind]
-        print(filename)
+        #print(filename)
 
         img = cv2.imread(folder + '/Frames/' + filename)
         cv2.imshow('Image', img)
@@ -41,8 +40,7 @@ def filteringFrames(fileName):
             print(filename + " copied to NO-gun folder!")
             cv2.imwrite(os.path.join(pathNoGun, filename), img)
             ind += 1
-        elif k == ord('f'): # break the function to go to next folder
-            
+        elif k == ord('f'): # break the function to go to next folder           
             cv2.destroyAllWindows()
             break
         elif k == ord('b'): # go backward
@@ -55,38 +53,15 @@ def filteringFrames(fileName):
             sys.exit()
         else:
             ind += 1    
-        cv2.destroyAllWindows()
-        
+        cv2.destroyAllWindows()        
 
-
-    '''
-    for filename in glob.glob(folder + '/Frames/*.jpg'):
-        name = filename.split('\\')[-1]
-        img = cv2.imread(filename)
-        cv2.imshow('Image', img)
-        k = cv2.waitKey(0)
-        if k == ord('y'):
-            print('copied')
-            cv2.imwrite(os.path.join(path, name), img)
-            cv2.destroyAllWindows()
-        elif k == ord('f'):        
-            cv2.destroyAllWindows()
-            break
-        # Will make couple elif more options here to move forward 10 frames, 20 frames, ...
-        '''
     return 0
 
 
 if __name__ == "__main__":
-   
-      for i in range(2, 13):
-        filteringFrames(str(i))
-    #else: 
-        #print("Folder exists! Please move data if needed and delete the folder first.")
-    #os.makedirs(fileName + "/Gun")
-    #os.makedirs(fileName + "/No-Gun")
-    #os.makedirs(fileName + "/Gun/Images")
-    #os.makedirs(fileName + "/Gun/Regular-Labels")
-    #os.makedirs(fileName + "/No-Gun/Images")
     
-    	
+    print("How many clips folders are there? Make sure your folders are in the format of '1_mp4, 2_mp4, ...', starting with 1.")
+    n = int(input("Enter: "))
+    
+    for i in range(1, n+1):
+        filteringFrames(str(i))
