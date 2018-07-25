@@ -26,7 +26,7 @@ def extract_frames_from_mp4(fileName, frameRate):
         success,image = capture.read()
         if success:
             if (i % int(fps / (frameRate))) == 0:
-                cv2.imwrite(fileName + '_mp4/Frames/' + str(saved_pic_num).zfill(4) + '.jpg', image)
+                cv2.imwrite(fileName + '_mp4/Frames/' + fileName + '_' + str(saved_pic_num).zfill(4) + '_' + str(datetime.date.today()) + '.jpg', image)
                 saved_pic_num += 1
     capture.release()
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     n = int(input("How many clips are there? Enter: "))
     frameRate = int(input("How many frames per second do you want to extract?\n"))
 
-    for i in range(16, n+1):
+    for i in range(1, n+1):
         fileName = str(i)
         #frameRate = 1
         if not os.path.exists(fileName+ '_mp4'):

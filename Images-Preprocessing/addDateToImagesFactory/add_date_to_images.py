@@ -7,13 +7,14 @@ wd = os.getcwd()
 wd
 	
 folder = 'Images'
-i = 22
+i = 33
 count = 1
 for filename in os.listdir(folder):	
 	names = filename.split('.')    
-	if (names[-1].lower() == 'jpg' or names[-1].lower() == 'jpeg' or names[-1].lower() == 'png'):
+	if (names[-1].lower() == 'jpg'):
+		#newname = "{0:03}".format(count) + '.png' # + str(datetime.date.today()) + '.jpg'      str(i) + '_' + 
 		newname = str(i) + '_' + "{0:03}".format(count) + '_' + str(datetime.date.today()) + '.jpg'
-		#newname = str(i) + '_' + "{0:03}".format(count) + '_' + '2018-06-06' + '.jpg'
+		print(newname)
 		count += 1
 		infilename = os.path.join(folder, filename)
 		print(infilename)
