@@ -50,18 +50,17 @@ while True:
 
             msg = MIMEMultipart()
             msg['Subject'] = 'Detection'
-            msg['From'] = 'thanhtung1984@gmail.com'
-            msg['To'] = 'hoangthanhtungvn@gmail.com'
+            msg['From'] = 'From email'
+            msg['To'] = 'To email'
             text = MIMEText("FedEx detected!!!")
             msg.attach(text)
             msg.attach(img)
 
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login("thanhtung1984@gmail.com", "RaspberryPi2817")
+            server.login("From email", "Your password")
 
-            server.sendmail("thanhtung1984@gmail.com", "hoangthanhtungvn@gmail.com", msg.as_string())
-            server.sendmail("thanhtung1984@gmail.com", "lukicm76@gmail.com", msg.as_string())           
+            server.sendmail("From email", "To email", msg.as_string())
             server.quit()
 
         elif detection['label'] == 'UPS':
@@ -83,18 +82,17 @@ while True:
 
             msg = MIMEMultipart()
             msg['Subject'] = 'Detection'
-            msg['From'] = 'thanhtung1984@gmail.com'
-            msg['To'] = 'hoangthanhtungvn@gmail.com'
+            msg['From'] = 'From email'
+            msg['To'] = 'To email'
             text = MIMEText("UPS detected!!!")
             msg.attach(text)
             msg.attach(img)
 
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login("thanhtung1984@gmail.com", "RaspberryPi2817")
+            server.login("From email", "Your password")
 
-            server.sendmail("thanhtung1984@gmail.com", "hoangthanhtungvn@gmail.com", msg.as_string())
-            server.sendmail("thanhtung1984@gmail.com", "lukicm76@gmail.com", msg.as_string())           
+            server.sendmail("From email", "To email", msg.as_string())          
             server.quit()
 
         elif detection['label'] == 'USPS':
@@ -116,18 +114,17 @@ while True:
 
             msg = MIMEMultipart()
             msg['Subject'] = 'Detection'
-            msg['From'] = 'thanhtung1984@gmail.com'
-            msg['To'] = 'hoangthanhtungvn@gmail.com'
+            msg['From'] = 'From email'
+            msg['To'] = 'To email'
             text = MIMEText("USPS detected!!!")
             msg.attach(text)
             msg.attach(img)
 
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login("thanhtung1984@gmail.com", "RaspberryPi2817")
+            server.login("From email", "Your password")
 
-            server.sendmail("thanhtung1984@gmail.com", "hoangthanhtungvn@gmail.com", msg.as_string())
-            server.sendmail("thanhtung1984@gmail.com", "lukicm76@gmail.com", msg.as_string())           
+            server.sendmail("From email", "To email", msg.as_string())          
             server.quit()
 
     print('running again')
