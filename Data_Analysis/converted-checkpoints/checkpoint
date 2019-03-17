@@ -1,2 +1,0 @@
-model_checkpoint_path: "pretrained_lstm-90000.ckpt"
-all_model_checkpoint_paths: "pretrained_lstm-90000.ckpt"

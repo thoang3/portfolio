@@ -1,7 +1,0 @@
-classes= 3
-train  = data/fed/train.txt
-valid  = data/fed/test.txt
-#difficult = data/difficult_2007_test.txt
-names = data/fed.names
-backup = backup/fed_AWS/
-
